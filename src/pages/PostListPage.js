@@ -1,7 +1,12 @@
 import React from 'react';
+import Button from '../components/Button';
 
 const PostListPage = () => {
-  return <div>포스트 리스트</div>;
+  return (
+    <div>
+      <Button>Press</Button>
+    </div>
+  );
 };
 
 export default PostListPage;
