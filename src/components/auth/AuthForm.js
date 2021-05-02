@@ -48,20 +48,22 @@ const textMap = {
     register: 'Sign In'
 };
 
-const AuthForm = ({type}) => {
+const AuthForm = ({type, form, onChange, onSubmit}) => {
     const text = textMap[type];
   return (
       <AuthFormBlock>
           <h3>{text}</h3>
-          <form>
-              <StyledInput autoComplete="username" name="username" placeholder="Write your ID" />
-              <StyledInput autoComplete="new-password" name="password" placeholder="Write your Password" type="password" />
+          <form onSubmit={onSubmit}>
+              <StyledInput value={form.username} onChange={onChange} autoComplete="username" name="username" placeholder="Write your ID" />
+              <StyledInput value={form.password} onChange={onChange} autoComplete="new-password" name="password" placeholder="Write your Password" type="password" />
               {type === 'register' && (
                   <StyledInput 
                     autoComplete="new-password"
                     name="passwordConfirm"
                     placeholder="Confirm Password"
                     type="password"
+                    onChange={onChange}
+                    value={form.passwordConfirm}
                   />
               )}
               <ButtonWithMarginTop cyan fullWidth>{text}</ButtonWithMarginTop>
@@ -70,7 +72,7 @@ const AuthForm = ({type}) => {
               {type === 'login' ? (
                   <Link to="/register">Sign In</Link>
               ):
-              (<Link to="/register">Log In</Link>
+              (<Link to="/login">Log In</Link>
               )}
           </Footer>
       </AuthFormBlock>
