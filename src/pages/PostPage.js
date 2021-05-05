@@ -1,5 +1,5 @@
 import React from 'react';
-import PostViewerContainer from '../components/post/PostViewerContainer';
+import PostViewerContainer from '../containers/posts/PostViewerContainer';
 import HeaderContainer from '../containers/common/HeaderContainer';
 
 const PostPage = () => {
